@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  i.fa.fa-question.fa-2x
+    span.font-weight-bold(style='font-size:20px;font-family:Arial') Ask question
+  #answerdiv
+    form(method='POST',action='/questions/ask')
+      #form-group
+        .form-group
+          .input-group
+            .input-group-prepend
+              span.input-group-text
+                i.fa.fa-question-circle
+            input.form-control(name='title',type='text',placeholder='Title')
+      #form-group
+        .form-group
+          .input-group
+            .input-group-prepend
+              span.input-group-text
+                i.fa.fa-flag
+            input.form-control(name='tags',type='text',placeholder='Tags separated by space')
+      #form-group
+        label Body:
+        textarea.form-control(name='body',placeholder='Atleast 1 character')(style='height:50vh')
+      br
+      input.btn.btn-primary.btn-sm(type='submit',value='Post question')

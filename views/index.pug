@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  i.fa.fa-question.fa-2x
+    span.font-weight-bold(style='font-size:20px;font-family:Arial')    Asked Questions
+  if questions.length == 0
+    span.font-weight-bold(style='font-size:20px;font-family:Arial') No questions asked
+  ul.list-group
+      each question,i in questions
+        li.list-group-item
+          .quesansdiv
+            div.col-md-1.col-sm-1.voteClass
+              i.fa.fa-sort-up.upvote-question
+              span(style='font-family:Arial')   #{question.votes}
+              i.fa.fa-sort-up.fa-rotate-180.downvote-question
+            div.col-md-11.col-sm-11
+              span
+                a.quesansHead(href='/questions/'+question._id)= question.title
+              span.quesansBody= question.body
+              br
+              if question.tags.split(' ')[0].length > 0
+                each tag,i in question.tags.split(' ')
+                  if tag.length > 0
+                    a.tagClass(href='/search/'+tag)   #{tag}  
+                

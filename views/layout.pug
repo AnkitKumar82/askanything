@@ -1,0 +1,52 @@
+doctype html
+html
+  head
+    title Ask Anything
+    link(rel='stylesheet' href='/bootstrap/css/bootstrap.css')
+    link(rel='stylesheet' href='/css/style.css')
+    link(rel='stylesheet' href='/fontawesome/css/all.css')
+  body(style="font-family:Arial;color:#333333;")
+    nav.navbar.navbar-expand-sm.navbar-dark.sticky-top(style="font-family:Arial;background-color:#222222")
+      a.navbar-brand(href='/')
+        i.fab.fa-quora
+          span(style='font-size:25px;font-family:Arial;font-style:bold') Ask Anything
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExample04', aria-controls='navbarsExample04', aria-expanded='true', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarsExample04.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item
+            a.dropdown-item.linkcss(href='/') Home
+          li.nav-item
+            a.dropdown-item.linkcss(href='/questions/ask')  Ask a question?
+          li.nav-item
+            form.a(method='POST',action='/search').form-inline
+              i.fa.fa-search(style='color:white;margin-right:1vh')
+              input.form-control.form-control-sm(name='searchquery', placeholder='search', type='text')  
+        ul.navbar-nav.ml-auto  
+          if user
+            li.nav-item
+              a.linkcss(href='/users/profile')(style='margin-right:2vh')  #{user.name}
+            li.nav-item
+              a.linkcss.text-danger(href='/users/logout')
+                i.fas.fa-sign-out-alt
+                span(style="font-family:Arial")  Logout
+          else
+            li.nav-item  
+              a.btn.btn-primary.linkcss(href='/users/login')(style='margin-right:2vh') Login
+            li.nav-item  
+              a.btn.btn-secondary.linkcss(href='/users/register') Register
+    if user
+      if !user
+        div
+          img(id='loginimage' src="/images/loginimage.jpg" alt="Login" height="100%" width="100%")
+          a.btn.btn-primary(href='/users/register')(style="font-family:Arial") Create A New Account
+    .container
+      br
+      br
+      != messages('message',locals)
+      if errors
+        each error ,i in errors
+          div(class='alert alert-danger') #{error.msg}
+      block content
+    script(src='/jquery/jquery.js')
+    script(src='/bootstrap/js/bootstrap.js')

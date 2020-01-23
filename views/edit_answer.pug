@@ -1,0 +1,16 @@
+extends layout
+block content
+  i.fa.fa-edit.fa-2x
+    span.font-weight-bold(style='font-size:20px;font-family:Arial') Edit Answer
+  #answerdiv
+    form(method='POST',action='/answer/edit/'+answer._id)
+      i.fab.fa-quora.fa-2x
+        span.font-weight-bold(style='font-size:20px;font-family:Arial')     
+          span    #{question.title}
+      #form-group
+        label Body:
+        textarea.form-control(name='body')(style='height:50vh') #{answer.body}
+      br
+      button.btn.btn-primary(type='submit')
+        i.fa.fa-edit
+        span(style="font-family:Arial")  Edit Confirm

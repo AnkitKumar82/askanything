@@ -1,0 +1,65 @@
+extend layout
+
+block content
+  br
+  .card.bg-light
+    article.card-body
+      h4.card-title.mb-4.mt-1
+        span(style='display:flex')
+          span(style='display:inline-block')
+            i.fa.fa-user.fa-4x
+          span(style='float:center;margin-left:10px')
+            h3.font-weight-bold #{userprofile.name}
+            i.fas.fa-envelope-square
+            span(style='font-family:Arial')    #{userprofile.email}
+            br
+            if user
+              if userprofile._id == user.id
+                a.btn.btn-info.btn-sm(href='/users/profile/')
+                  i.fas.fa-edit
+                  span(style='font-family:Arial')    Edit Profile
+  br
+  h5.font-weight-bold Total Questions posted : #{ques.length}
+  ul.list-group
+      each question,i in ques
+        li.list-group-item
+          .quesansdiv
+            div.col-md-1.voteClass
+              i.fa.fa-sort-up
+              span(style='font-family:Arial')   #{question.votes}
+              i.fa.fa-sort-up.fa-rotate-180
+            div.col-md-11
+              span
+                a.quesansHead(href='/questions/'+question._id)= question.title
+              span.quesansBody= question.body
+              br
+              if question.tags.split(' ')[0].length > 0
+                each tag,i in question.tags.split(' ')
+                  if tag.length > 0
+                    a.tagClass(href='/search/'+tag)   #{tag}   
+              span(style='float:right') 
+                a.btn.btn-danger.btn-sm(href='/questions/delete/'+question._id) 
+                  i.fas.fa-trash
+                  span(style='font-family:Arial')     Delete Question        
+  br
+  h5.font-weight-bold Total Answers posted : #{ans.length}      
+  ul.list-group
+    each answer ,i in ans
+      li.list-group-item
+        .quesansdiv
+          div.col-md-1.voteClass
+            i.fa.fa-sort-up
+            span(style='font-family:Arial')   #{answer.votes}
+            i.fa.fa-sort-up.fa-rotate-180
+          div.col-md-11
+            a.quesansBody(href='/questions/'+answer.quesid)= answer.body
+            br 
+            span(style='float:right') 
+              a.btn.btn-primary.btn-sm(href='/answer/edit/'+answer._id) 
+                i.fas.fa-trash
+                span(style='font-family:Arial')   Edit Answer
+              span 
+              a.btn.btn-danger.btn-sm(href='/answer/delete/'+answer._id) 
+                i.fas.fa-trash
+                span(style='font-family:Arial')   Delete Answer  
+            

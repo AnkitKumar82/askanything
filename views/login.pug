@@ -1,0 +1,25 @@
+extends layout
+block content
+  br
+  span.d-flex.justify-content-center
+    .card.text-center.bg-light.col-12.col-md-6
+      article.card-body
+        h4.card-title.text-center.mb-4.mt-1 
+          i.fa.fa-user.fa-4x
+        form.a(method='POST',action='/users/login').mt-4
+          .form-group
+            .input-group
+              .input-group-prepend
+                span.input-group-text
+                  i.fa.fa-envelope-square
+              input.form-control(name='username', placeholder='Email', type='text')
+          .form-group
+            .input-group
+              .input-group-prepend
+                span.input-group-text
+                  i.fa.fa-lock
+              input.form-control(name='password', placeholder='Password', type='password')(style='width=20px;')
+          br
+          button.btn.btn-primary(type='submit')
+            i.fa.fa-sign-in-alt
+            span(style="font-family:Arial")  Login

@@ -1,0 +1,83 @@
+.alert-error{
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.alert-success_msg{
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.linkcss{
+  color:#fdfdfd;
+}
+.linkcss:hover{
+  background-color: #000;
+  text-decoration: none;
+  color: #ffffff;
+}
+.btn{
+  border-radius: 3px;
+  color:#fdfdfd;
+  padding: 3px 35px 3px 35px;
+}
+.btn-primary{
+  background-color: rgb(47,110,251);
+}
+.btn-primary:hover{
+  background-color: rgb(40,101,240);
+}
+link{
+  color:red;
+}
+body{
+  background-color: #eaeaea;
+}
+#answerdiv{
+  margin:2vh 0vh 2vh 0vh;
+}
+.voteClass{
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vh;
+  text-align: center;
+  color: #999;
+}
+.votesLink{
+  color:#999;
+}
+.quesansdiv{
+  display: flex;
+  flex-direction:row;
+}
+.quesansHead{
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  color:black;
+}
+.quesansHead:hover{
+  color: rgb(47,110,251);
+  text-decoration: none;
+}
+.quesansBody{
+    margin-top: 2vh;
+    font-size:16px;
+    display: block;
+    color: #999;
+}
+.tagClass{
+  margin-right:0.5vh;
+  padding:0.5vh;
+  text-align: center;
+  border-radius: 3px;
+  font-size: 13px;
+  min-width:5vh;
+  color:rgb(150,150,150);
+  text-decoration:none;
+  border:1px rgb(180,180,180) solid;
+}
+.tagClass:hover{
+  color:rgb(110,110,110);
+  text-decoration:none;
+}

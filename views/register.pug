@@ -1,0 +1,36 @@
+extends layout
+block content
+  br
+  span.d-flex.justify-content-center
+    .card.text-center.bg-light.col-12.col-md-6
+      article.card-body
+        h4.card-title.text-center.mb-4.mt-1 
+          i.fa.fa-user-plus.fa-4x
+        form(method='POST',action='/users/register').form-group
+          .form-group
+            .input-group
+              .input-group-prepend
+                span.input-group-text
+                  i.fa.fa-user
+              input.form-control(name='name', placeholder='Name', type='text')
+          .form-group
+            .input-group
+              .input-group-prepend
+                span.input-group-text
+                  i.fa.fa-envelope-square
+              input.form-control(name='email', placeholder='Email', type='text')
+          .form-group
+            .input-group
+              .input-group-prepend
+                span.input-group-text
+                  i.fa.fa-lock
+              input.form-control(name='password', placeholder='Password', type='password')
+          .form-group
+            .input-group
+              .input-group-prepend
+                span.input-group-text
+                  i.fa.fa-lock
+              input.form-control(name='password2', placeholder='Confirm Password', type='password')
+          button.btn.btn-primary(type='submit')
+            i.fa.fa-sign-in-alt
+            span(style="font-family:Arial")  Register
